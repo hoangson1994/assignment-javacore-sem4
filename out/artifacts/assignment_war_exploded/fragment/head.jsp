@@ -8,7 +8,7 @@
 <%String title = (String) request.getParameter("title"); %>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="/css/signin.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
     <title><%=title%></title>
 </head>
 
