@@ -28,29 +28,30 @@
     <ul>
         <%if (errors.containsKey("username")) {%>
         <% for (String username: errors.get("username")) {%>
-        <li><%=username%></li>
+        <li class="text-danger"><%=username%></li>
         <%}%>
         <%}%>
         <%if (errors.containsKey("password")) {%>
         <% for (String password: errors.get("password")) {%>
-        <li><%=password%></li>
+        <li class="text-danger"><%=password%></li>
         <%}%>
         <%}%>
         <%if (errors.containsKey("fullname")) {%>
         <% for (String fullname: errors.get("fullname")) {%>
-        <li><%=fullname%></li>
+        <li class="text-danger"><%=fullname%></li>
         <%}%>
         <%}%>
     </ul>
     <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
     <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" id="inputUsername" class="form-control" placeholder="Username" value="<%=user.getUsername()==null ? "" : user.getUsername()%>" required autofocus>
+    <input name="username" type="text" id="inputUsername" class="form-control" placeholder="Username" value="<%=user.getUsername()==null ? "" : user.getUsername()%>" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
     <label for="inputFullName" class="sr-only">FullName</label>
-    <input type="text" id="inputFullName" class="form-control" placeholder="FullName" value="<%=user.getFullname()==null ? "" : user.getFullname()%>" required>
+    <input name="fullname" type="text" id="inputFullName" class="form-control" placeholder="FullName" value="<%=user.getFullname()==null ? "" : user.getFullname()%>" required>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">Register</button>
+    <a href="/login">Login</a>
     <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </form>
 

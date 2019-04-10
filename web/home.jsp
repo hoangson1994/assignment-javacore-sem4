@@ -1,5 +1,6 @@
 <%@ page import="entity.Feedback" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="entity.User" %><%--
   Created by IntelliJ IDEA.
   User: HOANG SON
   Date: 4/8/2019
@@ -12,13 +13,21 @@
     if (feedbacks == null) {
         feedbacks = new ArrayList<>();
     }
+    boolean submitSuccess = false;
+    if (request.getAttribute("submit-success") != null) {
+        submitSuccess = (boolean) request.getAttribute("submit-success");
+    }
+
+    User user = (User) request.getAttribute("userLogged");
 %>
 <html>
 <jsp:include page="fragment/head.jsp">
     <jsp:param name="title" value="HOME"></jsp:param>
 </jsp:include>
 <body class="text-center">
-<jsp:include page="fragment/header.jsp"></jsp:include>
+<jsp:include page="fragment/header.jsp">
+    <jsp:param name="userRole" value="<%=user.getRole()%>"></jsp:param>
+</jsp:include>
 <div class="feedback">
     <h1 class="h3 mb-3 font-weight-normal h1-custom">List feedback</h1>
     <table class="table">
@@ -43,5 +52,10 @@
     </table>
 </div>
 
+<%if (submitSuccess) {%>
+    <script>
+        alert("Send feedback success. Please wait admin accept");
+    </script>
+<%}%>
 </body>
 </html>

@@ -48,4 +48,15 @@
         <servlet-name>Admin</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>Myfilter</filter-name>
+        <filter-class>filter.MyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Myfilter</filter-name>
+        <url-pattern>/home</url-pattern>
+        <url-pattern>/feedback</url-pattern>
+        <url-pattern>/admin</url-pattern>
+    </filter-mapping>
 </web-app>

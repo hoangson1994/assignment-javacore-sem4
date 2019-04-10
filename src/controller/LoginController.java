@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
 
         if (user == null) {
             req.setAttribute("error", "Username or Password incorrect");
-            req.setAttribute("user", "userMap");
+            req.setAttribute("user", userMap);
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
             return;
         }

@@ -1,12 +1,9 @@
 package entity;
 
-import annotation.Id;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Feedback {
-    @Id(autogenerate = true)
     private int id;
     private String title;
     private String content;

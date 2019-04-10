@@ -1,13 +1,9 @@
 package entity;
 
-import annotation.AutoGenerate;
-import annotation.Id;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class User {
-    @Id(autogenerate = true)
     private int id;
     private String username;
     private String password;

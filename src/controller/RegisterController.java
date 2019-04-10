@@ -32,9 +32,9 @@ public class RegisterController extends HttpServlet {
         UserModel userModel = new UserModel();
         boolean result = userModel.insert(user);
         if (result) {
-
+            req.getRequestDispatcher("/login?username=" + username + "&password=" + password).forward(req, resp);
         } else {
-
+            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

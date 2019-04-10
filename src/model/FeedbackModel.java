@@ -10,12 +10,14 @@ import java.util.ArrayList;
 public class FeedbackModel {
 
     public boolean insert(Feedback feedback) {
-        String sql = "insert into feedbacks (title, content, user_id) values (?, ?, ?)";
+        String sql = "insert into feedbacks (title, content, user_id, created_at, updated_at) values (?, ?, ?, ?, ?)";
         try {
             PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(sql);
             preparedStatement.setString(1, feedback.getTitle());
             preparedStatement.setString(2, feedback.getContent());
             preparedStatement.setInt(3, feedback.getUser_id());
+            preparedStatement.setLong(4, feedback.getCreated_at());
+            preparedStatement.setLong(5, feedback.getUpdated_at());
             preparedStatement.execute();
             return true;
         } catch (Exception e){
