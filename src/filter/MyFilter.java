@@ -27,7 +27,7 @@ public class MyFilter implements Filter {
             User user = userModel.getOneByUsername(username);
             httpServletRequest.setAttribute("userLogged", user);
             if ("/admin".equalsIgnoreCase(httpServletRequest.getRequestURI())) {
-                if (user.getRole() != 2) {
+                if (user.getRole() != User.Role.ADMIN.getValue()) {
                     httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED);
                     return;
                 }
